@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="robots" content="noindex,nofollow">
+<title>Штаб «Всемогущий контроль»</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbfbfd;--surface:#ffffff;--ink:#1d1d1f;--muted:#6e6e73;--faint:#86868b;--line:rgba(0,0,0,.09);--accent:#0071e3;--soft:#f5f5f7;--bar:rgba(251,251,253,.78)}
+html[data-theme="dark"]{--bg:#000000;--surface:#0a0a0b;--ink:#f5f5f7;--muted:#a1a1a6;--faint:#6e6e73;--line:rgba(255,255,255,.10);--accent:#4d9fff;--soft:#111113;--bar:rgba(0,0,0,.72)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+html,body{margin:0;background:var(--bg);color:var(--ink);-webkit-text-size-adjust:100%;
+ font-family:Inter,-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI","Noto Sans",Roboto,sans-serif;
+ font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased;letter-spacing:-.006em}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.bar{position:sticky;top:0;z-index:10;background:var(--bar);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1040px;margin:0 auto;height:56px;display:flex;align-items:center;gap:16px;padding:0 max(22px,env(safe-area-inset-left))}
+.brand{font-size:15px;font-weight:600;letter-spacing:.02em;white-space:nowrap}.brand b{font-weight:700}
+.theme{margin-left:auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:transparent;cursor:pointer;display:grid;place-items:center;flex:none}
+.theme span{width:14px;height:14px;border-radius:50%;background:linear-gradient(90deg,var(--ink) 50%,transparent 50%);border:1.5px solid var(--ink)}
+.wrap{max-width:1040px;margin:0 auto;padding:72px max(22px,env(safe-area-inset-right)) 64px max(22px,env(safe-area-inset-left))}
+.hero{margin-bottom:28px}
+.eyebrow{font-size:13px;font-weight:600;color:var(--accent);margin:0 0 10px}
+.hero h1{font-size:clamp(32px,5.4vw,56px);line-height:1.05;font-weight:700;letter-spacing:-.03em;margin:0;max-width:16ch}
+.howto{color:var(--muted);font-size:17px;line-height:1.5;margin:20px 0 0;max-width:62ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chips a{font-size:13px;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:6px 14px}
+.chips a:hover{border-color:var(--ink);text-decoration:none}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:8px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kpi{padding:20px 16px 18px 0}
+.kpi+.kpi{padding-left:20px;border-left:1px solid var(--line)}
+.kpi b{display:block;font-size:clamp(24px,3vw,34px);font-weight:600;letter-spacing:-.025em;font-variant-numeric:tabular-nums;line-height:1.1}
+.kpi span{color:var(--muted);font-size:13px}
+.card{padding:40px 0 8px}
+.card h2{font-size:22px;font-weight:600;letter-spacing:-.018em;margin:0}
+.lead{color:var(--muted);font-size:15px;line-height:1.5;margin:8px 0 4px;max-width:68ch}
+ul.files{list-style:none;margin:0;padding:0}
+ul.files li{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+.name{flex:1;min-width:0}
+.name>b{color:var(--ink);font-weight:500;font-size:15px}
+.meta{display:block;color:var(--muted);font-size:13px;margin-top:3px;line-height:1.45}
+.st{display:inline-block;flex:none;margin-top:2px;font-size:11px;font-weight:500;padding:1px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.st.ok{color:var(--muted)}
+.st.wip,.st.wait,.st.lock{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+.block{padding:28px 0;border-top:1px solid var(--line)}
+.block h3{font-size:17px;font-weight:600;letter-spacing:-.015em;margin:0 0 8px}
+.chain{display:flex;flex-wrap:wrap;gap:6px;align-items:center;color:var(--muted);font-size:14px}
+.chain b{color:var(--ink);font-weight:500}
+.facts{margin:12px 0 0;border-top:1px solid var(--line)}
+.facts>div{display:grid;grid-template-columns:148px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.facts dt{color:var(--faint);font-size:13px}.facts dd{margin:0}
+.decide{margin:16px 0 8px;padding:24px 26px;background:var(--soft);border-radius:18px}
+.decide h3{font-size:19px;font-weight:600;margin:0 0 12px;letter-spacing:-.015em}
+.decide ol{margin:0;padding-left:20px;font-size:14.5px;line-height:1.5;columns:2;column-gap:36px}
+.decide li{margin:0 0 10px;break-inside:avoid;color:var(--muted)}
+.decide li b{color:var(--ink);font-weight:600;display:block}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 4px}
+th,td{text-align:left;padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--faint);font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+.foot{margin-top:48px;color:var(--faint);font-size:12px;line-height:1.6}
+@media (max-width:720px){
+ .bar-in{height:auto;flex-wrap:wrap;padding:10px 16px}
+ .theme{width:40px;height:40px}
+ .wrap{padding:40px 18px calc(48px + env(safe-area-inset-bottom))}
+ .kpis{grid-template-columns:1fr 1fr}
+ .kpi+.kpi{border-left:0}
+ .kpi:nth-child(odd){padding-left:0}
+ .kpi:nth-child(even){padding-left:16px;border-left:1px solid var(--line)}
+ .kpi:nth-child(n+3){border-top:1px solid var(--line)}
+ .facts>div{grid-template-columns:1fr;gap:2px}
+ .decide{padding:20px 18px}.decide ol{columns:1}
+ table,tbody,tr,td{display:block;width:100%}
+ thead{display:none}
+ tr{padding:12px 0;border-bottom:1px solid var(--line)}
+ td{border:0;padding:2px 0}
+}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-in">
+    <div class="brand"><b>NEPRO</b>100 · Штаб</div>
+    <button class="theme" id="theme" type="button" aria-label="Тема"><span></span></button>
+  </div>
+</header>
+<main class="wrap">
+  <div class="hero">
+    <p class="eyebrow">Разбор 6 октября 2026</p>
+    <h1>Штаб «Всемогущий контроль»</h1>
+    <p class="howto">Карта уже собранных файлов и правил. Новую базу не создают. Соединяют то, что лежит в папках, и выпускают материал только после проверки. Двенадцать ролей здесь это промты, не двенадцать новых людей.</p>
+    <div class="chips">
+      <a href="#baza">База</a>
+      <a href="#roli">Роли</a>
+      <a href="#konveer">Конвейер</a>
+      <a href="#stranicy">Страницы</a>
+      <a href="#utro">Утро</a>
+      <a href="#nedeli">Недели</a>
+      <a href="#voprosy">Вопросы</a>
+    </div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><b>12</b><span>промтов, не людей</span></div>
+    <div class="kpi"><b>8</b><span>шагов до выкладки</span></div>
+    <div class="kpi"><b>5</b><span>утренних цифр, продаж нет</span></div>
+    <div class="kpi"><b>6</b><span>вопросов к Кате</span></div>
+  </div>
+
+  <section class="card" id="baza">
+    <h2>Что уже лежит в базе</h2>
+    <p class="lead">Катя видит готовое и один вопрос. Деньги, люди и публикация остаются за ней. Правила сейчас в семи файлах, цифры никто не сводит, проверка до сих пор на ней лично.</p>
+    <ul class="files">
+      <li><span class="st ok">есть</span><div class="name"><b>Промты контент-машины</b><span class="meta">Голос бренда, голос Екатерины, инфостиль, фокусы языка, критик, 10 форматов, «по следам вебинара». Читают вручную. 28 августа лендинг переписали, потому что промты в чате забыли.</span></div></li>
+      <li><span class="st ok">есть</span><div class="name"><b>Портрет аудитории, S1–S5</b><span class="meta">Около 520 анкет, денежные убеждения 129 человек, словарь августа. В генерацию подмешивали. На страницах школы этих слов почти нет.</span></div></li>
+      <li><span class="st wait">2 из 11</span><div class="name"><b>Корпус, 151 занятие</b><span class="meta">Карта, глоссарий на 69 терминов, разборы с таймкодами. Разобраны 2 кластера из 11.</span></div></li>
+      <li><span class="st wait">не в лендингах</span><div class="name"><b>Мотивы клуба</b><span class="meta">Достижение, познание, люди, правота. Баланс 45, 25, 20, 10. Имя автора типологии не называть. В отделе продаж этого ещё нет.</span></div></li>
+      <li><span class="st wip">руками</span><div class="name"><b>Воронки Юлии и Татьяны</b><span class="meta">Один человек получает одно предложение. Анкета, диагностика, Превосходство. Клуб ведёт Татьяна, Превосходство после диагностики ведёт Юлия. Касание в первые сутки описано, не собрано.</span></div></li>
+      <li><span class="st wait">без сводки</span><div class="name"><b>Учёт и 19 досье</b><span class="meta">Таблицы заполняют Юлия и отдел продаж. По ЭЭБП 7 оплатили, 12 нет. Правило: сначала отдаём, потом спрашиваем.</span></div></li>
+      <li><span class="st ok">живёт</span><div class="name"><b>Штаб задач</b><span class="meta">43 задачи, 14 проектов. Планёрка в чате, строка в таблице, раздаёт Катя Лазарева. В документе цель недели: 120 человек на зорьку и 5 продаж Превосходства.</span></div></li>
+      <li><span class="st lock">закрыта</span><div class="name"><b>Таблица «События»</b><span class="meta">Один источник дат для клуба и главной. Бот в Make собран 6 октября. Таблица не открыта на чтение, страницы даты сами не подтянут.</span></div></li>
+    </ul>
+  </section>
+
+  <section class="card" id="roli">
+    <h2>Цепочки, не штатное расписание</h2>
+    <p class="lead">Диспетчер выбирает промты под тип задачи. Факт-чекер входит в каждую цепочку. Проверяющий не переписывает: возвращает цитату и причину.</p>
+    <div class="block">
+      <h3>Пост или карусель по эфиру</h3>
+      <div class="chain"><b>Редактор</b> → критик → голос автора → факт-чекер → афиши</div>
+    </div>
+    <div class="block">
+      <h3>Письмо по базе</h3>
+      <div class="chain"><b>Письма</b> → факт-чекер → критик → голос Екатерины</div>
+    </div>
+    <div class="block">
+      <h3>Лендинг</h3>
+      <div class="chain"><b>Лендинги</b> → факт-чекер → голос продукта → мотивы клуба → афиша</div>
+    </div>
+    <div class="block">
+      <h3>Дожать неоплативших</h3>
+      <div class="chain"><b>Продажи</b> → досье → факт-чекер → РОП Анастасия и Екатерина</div>
+    </div>
+    <div class="block">
+      <h3>Перенести дату</h3>
+      <div class="chain"><b>Расписание</b> → конфликт дат → письмо тем, кто записан</div>
+    </div>
+    <div class="block">
+      <h3>Сколько у нас</h3>
+      <div class="chain"><b>Аналитик утра</b> → финансист</div>
+    </div>
+    <dl class="facts">
+      <div><dt>Порядок</dt><dd>Факт-чекер, критик, голос автора, пять читателей S1–S5, Екатерина.</dd></div>
+      <div><dt>Вердикт</dt><dd>Ок, правки или переписать. Её правки записываются в память голоса.</dd></div>
+      <div><dt>Голоса</dt><dd>Екатерина, Михаил Пелехатый, Андрей Гуляев (КОРА, не проект), Александр Герасимов. Чужой регистр не смешивать.</dd></div>
+    </dl>
+  </section>
+
+  <section class="card" id="konveer">
+    <h2>Три конвейера</h2>
+    <div class="block">
+      <h3>Планёрка → строка → выкладка</h3>
+      <p class="lead">Запись tl;dv падает в «Планёрки». Секретарь вытаскивает решения, сроки и открытые вопросы. Строка идёт в канбан и в группу «ГДЗ от всемогущего контроля». Черновик в «01_черновик», правки в «02_правки». Катя отвечает одним сообщением в боте. В 9:00 бот пишет, что закрыто, что ждёт её, что просрочено.</p>
+    </div>
+    <div class="block">
+      <h3>Материал готов, только если есть три вещи</h3>
+      <p class="lead">Проверка пройдена. Формат канала соблюдён. Есть дата и канал. Иначе статус «готовится». Урок из транскрипта даёт текст, слайды, 3 поста и письмо. Урок Павловского отдельно режут в маркетинг. Сейчас в файле только урок 7, остальных 11 нет. Письмо и пост уходят только после «ок».</p>
+    </div>
+    <div class="block">
+      <h3>Касания клиента сами не идут</h3>
+      <p class="lead">Автоматической становится цепочка, которую Катя утвердила целиком. Письма на «вы». «Купить» и «оплатить» заменяются на «записаться» и «открыть доступ». Гость: 3 дня, на 4-й доступ закрывается. Клуб и Превосходство не приходят одному человеку за одну неделю.</p>
+    </div>
+  </section>
+
+  <section class="card" id="stranicy">
+    <h2>Где спотыкается страница</h2>
+    <p class="lead">Проход главной, клуба и публичной страницы от лица S1–S5. Это кандидаты, не готовые строки.</p>
+    <ul class="files">
+      <li><span class="st lock">слова</span><div class="name"><b>Отработка, флагман, контур</b><span class="meta">Вне школы не читаются. Рядом с отработками: можно прийти слушателем. Это страх анкет: «вдруг спросят, а я не готова».</span></div></li>
+      <li><span class="st lock">анкеты</span><div class="name"><b>Структурировать, не бросить, применить завтра</b><span class="meta">Самые частые слова августа на страницах почти не встречаются. Нигде нет «сколько времени в неделю». 72 из 93 готовы на 3–5 часов.</span></div></li>
+      <li><span class="st wait">подарок</span><div class="name"><b>Четвёртый день</b><span class="meta">Курс за 5 500 ₽ на 3 дня понятен. Не сказано, что будет дальше. Нужна фраза: доступ закрывается, карта не нужна. Какой именно курс, Катя ещё не подтвердила.</span></div></li>
+      <li><span class="st wip">клуб</span><div class="name"><b>Клуб и подписка как синонимы</b><span class="meta">После записи не сказано, что будет в первые сутки: чат, ближайшая отработка, запись прошлого вебинара. Курсы «не входит в подписку» выглядят как ошибка афиши, если нет подписи, зачем они здесь.</span></div></li>
+    </ul>
+    <dl class="facts">
+      <div><dt>Показывать</dt><dd>Одно расписание. Один следующий шаг по анкете. Ответ куратора в тот же день, подпись Татьяны или Юлии. На утро после эфира: запись, конспект, одно упражнение. Про ИИ только в блоке библиотеки.</dd></div>
+      <div><dt>Не показывать</dt><dd>Проценты прогресса, «ваш ИИ-ассистент» и цифры, которые сегодня нельзя подтвердить.</dd></div>
+    </dl>
+  </section>
+
+  <section class="card" id="utro">
+    <h2>Утро и деньги</h2>
+    <p class="lead">В документе цель октября 2 000 000 ₽, годовая 200 млн. Это цель, не посчитанный факт. Лист «Цифры» из пяти чисел. Заказов GetCourse в базе нет, поэтому три нижние строки пустые до выгрузки.</p>
+    <table>
+      <thead><tr><th>Цифра</th><th>Откуда</th><th>Зачем</th></tr></thead>
+      <tbody>
+        <tr><td>Анкеты за сутки</td><td>форма → Make</td><td>Норма в документе: не меньше 10 в неделю. Падение значит смотреть трафик.</td></tr>
+        <tr><td>Диагностики Юлии</td><td>лист РОПа</td><td>Назначено и проведено. Много анкет и мало разговоров: вопрос РОПу.</td></tr>
+        <tr><td>Клуб</td><td>заказы GetCourse</td><td>Контур Татьяны. Выгрузки нет.</td></tr>
+        <tr><td>Превосходство и ЭЭБП</td><td>заказы GetCourse</td><td>Контур Юлии и средний чек. Выгрузки нет.</td></tr>
+        <tr><td>Выручка месяца</td><td>сумма заказов</td><td>План на сегодня и факт. Партнёрские проценты тем же листом раз в неделю.</td></tr>
+      </tbody>
+    </table>
+    <p class="lead">Три рычага уже видны без новой системы: подарок на главной как вход в анкету, 12 неоплативших ЭЭБП с известными причинами, продление клуба за 5 дней из таблицы «События».</p>
+  </section>
+
+  <section class="card" id="nedeli">
+    <h2>Шесть недель</h2>
+    <ul class="files">
+      <li><span class="st lock">6–12 окт</span><div class="name"><b>Сейчас. Бот расписания и четыре строки на сайте</b><span class="meta">Кому и сколько времени. Можно слушателем. Что на 4-й день. Что входит в подписку. От Кати: открыть «События» на чтение, написать боту /sched_here, назвать курс подарка, дать ок на группу «Гости НБ».</span></div></li>
+      <li><span class="st wip">13–19 окт</span><div class="name"><b>Секретарь планёрок</b><span class="meta">Транскрипт становится задачами. Утро пока без продаж. Нужен доступ к tl;dv и одна сверка списка бота с её списком.</span></div></li>
+      <li><span class="st wip">20–26 окт</span><div class="name"><b>Первый полный конвейер</b><span class="meta">Беспалов: «после вебинара» и отработки 20–22 октября. 15 минут её правок станут памятью голоса.</span></div></li>
+      <li><span class="st wip">27 окт – 2 ноя</span><div class="name"><b>Урок 7 Павловского в маркетинг</b><span class="meta">Программа ноября по мотивам 45, 25, 20, 10. Остальных уроков в файле нет. Даты ноября вносятся через бота.</span></div></li>
+      <li><span class="st wait">ноябрь</span><div class="name"><b>Касания и лист «Цифры»</b><span class="meta">Карточка РОПу, куратор на 7-й день, продление за 5 дней. Нужна выгрузка GetCourse или ключ только на чтение. Татьяна и Юлия подписывают черновики.</span></div></li>
+    </ul>
+    <div class="decide">
+      <h3>Не трогаем</h3>
+      <ol>
+        <li><b>GetCourse как есть</b>Платежи, продукты, автоматизации и права не меняем. Новые письма создаются рядом.</li>
+        <li><b>Без «ок» не уходит</b>Письмо, пост и страница проходят проверяющих. У выложенного есть запись отката.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="card" id="voprosy">
+    <h2>Шесть вопросов</h2>
+    <p class="lead">Пока ответов нет, штаб подставляет старые даты и старые названия. Это как раз то, из-за чего страницы уже расходились с фактом.</p>
+    <div class="decide">
+      <h3>Без этого дальше гадание</h3>
+      <ol>
+        <li><b>Какой курс в подарок на 3 дня</b>В документе вопрос, не факт: «Превосходство 5.0. Начало: Демонстрация».</li>
+        <li><b>Консультация по-прежнему 3 000 ₽</b>Так стояло на старой странице клуба после 10 сентября.</li>
+        <li><b>«НЛП и деньги» входит в клуб</b>Сейчас помечен как отдельный. Иначе афиша выглядит как ошибка.</li>
+        <li><b>Когда заканчивается ЭЭБП</b>Без даты дожим 12 неоплативших не к чему привязать.</li>
+        <li><b>Дата «Превосходства. Деньги»</b>В документе её нет. Пока нет строки в «Событиях», дату не выдумывать.</li>
+        <li><b>Кто читает утро</b>Только Екатерина, или ещё Катя Лазарева и Анастасия.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Как этим пользоваться</h2>
+    <ul class="files">
+      <li><span class="st ok">1</span><div class="name"><b>Это не рассылка готовых пакетов</b><span class="meta">Пакет с её ТЗ выкладывается как есть. Штаб про планёрки, страницы школы, письма и утренние цифры. Контуры не смешивать.</span></div></li>
+      <li><span class="st lock">2</span><div class="name"><b>Сначала таблица, потом тексты</b><span class="meta">Факт-чекер сверяет даты с «Событиями». Лист закрыт. Пока его не откроют, даты в письмах и на страницах будут догадкой.</span></div></li>
+      <li><span class="st ok">3</span><div class="name"><b>Четыре строки сайта уже названы</b><span class="meta">Кому и сколько времени. Можно слушателем. На четвёртый день карта не нужна. Что входит в подписку. Для них не нужен новый штаб, нужно её «ок» и открытое расписание.</span></div></li>
+      <li><span class="st wait">4</span><div class="name"><b>Выручку утром обещать нельзя</b><span class="meta">Продажи в отчёте появляются в плане недель 5–6, после выгрузки заказов. До этого бот умеет список закрытого и просроченного.</span></div></li>
+    </ul>
+  </section>
+
+  <p class="foot">Источник: конституция штаба от 6 октября 2026. Цифры и имена из документа, не из новой выгрузки. Страница отдельно от учётки монтажа и YouTube.</p>
+</main>
+<script>
+var themeBtn=document.getElementById('theme');
+function applyTheme(dark){document.documentElement.setAttribute('data-theme',dark?'dark':'light');
+ var m=document.querySelector('meta[name="theme-color"]'); if(m) m.setAttribute('content',dark?'#000000':'#fbfbfd');
+ themeBtn.setAttribute('aria-pressed',dark?'true':'false'); themeBtn.title=dark?'Светлая тема':'Тёмная тема';
+ try{localStorage.setItem('nepro-theme',dark?'dark':'light');}catch(e){}}
+applyTheme((function(){try{var s=localStorage.getItem('nepro-theme'); if(s) return s==='dark';}catch(e){} return true;})());
+themeBtn.addEventListener('click',function(){applyTheme(document.documentElement.getAttribute('data-theme')!=='dark');});
+</script>
+</body>
+</html>
